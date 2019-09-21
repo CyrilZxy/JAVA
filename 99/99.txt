@@ -1,0 +1,7 @@
+1	for循环 for（初始化；判断式不满足break；步长+1 ）
+	printf（“sum=%d*%d=%d“，num1，num2，sum）
+	控制台输出 有重复乘法 时间复杂度高 
+	加减乘除 ：add, subtract, multiply and divide   	
+	和差积商：sum, difference, product, quotient
+
+2	
