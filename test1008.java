@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 public class test1008
 {
 	public static void main(String []args)
