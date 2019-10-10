@@ -9,6 +9,7 @@ public class work1
 		int num1 = 10;
 		int num2 = 20;
 		int sum=num1+num2;
+		
 		num1=sum-num1;
 		num2=sum-num2;
 		
