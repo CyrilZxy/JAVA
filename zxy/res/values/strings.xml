@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">zxy</string>
+    <string name="hello"> \n 荷塘月色
+        				  \n 剪一段时光缓缓流淌
+						  \n 流进月色中微微荡漾        
+						  
+        </string>
+    <string name="action_settings">Settings</string>
+
+</resources>
