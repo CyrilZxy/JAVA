@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/myTextView01"
+            android:layout_width="fill_parent"
+            android:layout_height="41px"
+            android:layout_x="33px"
+            android:layout_y="106px"
+            android:text="请输入密码"
+            android:textSize="24sp"/>
+
+        <EditText
+            android:id="@+id/myEditText"
+            android:layout_width="180px"
+            android:layout_height="wrap_content"
+            android:layout_x="29px"
+            android:layout_y="33px"
+            android:inputType="text"
+            android:textSize="24sp">
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/myButton"
+            android:layout_width="100px"
+            android:layout_height="wrap_content"
+            android:text="确定" 
+            android:textSize="24sp"/>
+
+        <TextView
+            android:id="@+id/myTextView02"
+            android:layout_width="500px"
+            android:layout_height="40px"
+            android:layout_x="33px"
+            android:layout_y="106px"
+            android:textSize="24sp"/>>
+
+        
+ </LinearLayout>
+
+
+
