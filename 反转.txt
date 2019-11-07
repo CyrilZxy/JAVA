@@ -1,0 +1,82 @@
+ //反转单链表
+    public ListNode reverseList() {
+        ListNode prev = null;
+        ListNode newHead = null;
+        ListNode cur = this.head;
+        while (cur != null) {
+            ListNode curNext = cur.next;
+            if(curNext == null) {
+                newHead = cur;
+            }
+            cur.next = prev;
+            prev = cur;
+            cur = curNext;
+        }
+        return newHead;
+    }
+    public void display2(ListNode newHead){
+        if(newHead == null) {
+            return;
+        }
+        ListNode cur = newHead;
+        while (cur != null) {
+            System.out.print(cur.data+" ");
+            cur = cur.next;
+        }
+        System.out.println();
+    }
+
+    public ListNode middleNode() {
+        /*int len = getLength()/2;
+        ListNode cur = this.head;
+        for (int i = 0; i < len; i++) {
+            cur = cur.next;
+        }
+        return cur;*/
+        ListNode fast = this.head;
+        ListNode slow = this.head;
+        while (fast!=null && fast.next!=null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+    //
+    public ListNode findKthToTail1(int k) {
+        if(k <= 0 ||k > getLength()) {
+            return null;
+        }
+        ListNode fast = this.head;
+        ListNode slow = this.head;
+        while (k-1 > 0) {
+            fast = fast.next;
+            k--;
+        }
+        while (fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+    public ListNode findKthToTail(int k) {
+        if(k <= 0) {
+            return null;
+        }
+        ListNode fast = this.head;
+        ListNode slow = this.head;
+        while (k-1 > 0) {
+            if(fast.next != null) {
+                fast = fast.next;
+                k--;
+            }else {
+                System.out.println("没有这个节点");
+                return null;
+            }
+
+        }
+        while (fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
