@@ -1,0 +1,25 @@
+    //4. 输入一个链表，输出该链表中倒数第k个结点。
+    public ListNode findKthToTail(int k){
+        ListNode fast=this.head;
+        ListNode slow=this.head;
+
+        if (k<=0||head==null){
+            System.out.print("k值越界  null    ");
+            return head;
+        }
+
+        for (int i = 0; i <k-1; i++) {
+            if (fast==null){
+                System.out.print("k值越界  null");
+                return head;
+            }else{
+                fast=fast.next;
+            }
+        }
+        while(fast.next!=null){
+            fast=fast.next;
+            slow=slow.next;
+        }
+        return slow;
+
+    }
