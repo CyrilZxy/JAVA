@@ -1,0 +1,29 @@
+public boolean chkPalindrome() {
+    //1、找到单链表的中间节点   slow fast
+    ListNode fast = this.head;
+    ListNode slow = this.head;
+    while (fast != null && fast.next != null) {
+        fast = fast.next.next;
+        slow = slow.next;
+    }
+    //2、反转后半部分单链表
+    ListNode cur = slow.next;
+    while (cur != null) {
+        ListNode curNext = cur.next;
+        cur.next = slow;
+        slow = cur;
+        cur = curNext;
+    }
+    //3、fast/slow往前    head往后走
+    while (head!=slow){
+        if(head.data!=slow.data){
+            return false;
+        }
+        if (this.head.next==slow){
+            return true;
+        }
+        slow=slow.next;
+        this.head=this.head.next;
+    }
+    return true;
+}
