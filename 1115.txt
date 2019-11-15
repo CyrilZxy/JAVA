@@ -1,0 +1,29 @@
+
+
+//8.给定一个链表，判断链表中是否有环。  fast两步  slow一步  
+//  相遇有环    fast两步大多数情况下最快相遇
+
+
+
+public void creatLoop() {              //先创建环
+    ListNode cur = this.head;
+    while (cur.next != null) {         //最后节点
+        cur = cur.next;
+    }
+    cur.next = this.head.next.next;     //最后节点指向第三个节点
+}
+public boolean hasCycle(){
+    ListNode fast = this.head;
+    ListNode slow = this.head;
+    while (fast != null && fast.next!= null) {
+        fast = fast.next.next;
+        slow = slow.next;
+        if(slow == fast) {
+            break;
+        }
+    }
+    if(fast == null || fast.next == null) {
+        return false;
+    }
+    return true;
+}
