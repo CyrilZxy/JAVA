@@ -1,0 +1,36 @@
+
+
+10.将两个有序链表合并为一个新的有序链表并返回。与主函数并列。
+   新链表是通过拼接给定的两个链表的所有节点组成的。
+
+
+/*  main中的调用。
+    ListNode newHead = mergeTwoLists(list.head,list1.head);
+    list1.display2(newHead);      list1 list2 都可用   */
+
+
+public static ListNode mergeTwoLists(        //加static， main函数调用
+                       ListNode headA, ListNode headB) {   
+    ListNode newHead = new ListNode(-1);
+    ListNode tmp = newHead;
+
+    while (headA != null && headB != null) {
+        if (headA.data <= headB.data) {
+            tmp.next = headA;
+            headA = headA.next;
+            tmp = tmp.next;
+        } else {
+            tmp.next = headB;
+            headB = headB.next;
+            tmp = tmp.next;
+        }
+    }
+
+    if (headA == null) {
+        tmp.next = headB;
+    } else {
+        tmp.next = headA;
+    }
+
+    return newHead.next;
+}
