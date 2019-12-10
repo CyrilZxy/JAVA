@@ -1,0 +1,29 @@
+    public ListNode removeElements(ListNode head,int val){        //删除元素
+        ListNode cur=head.next;     //0
+        ListNode prev=head;
+
+        if (this.head==null){       //当链表为空时
+            return null;
+        }
+
+        while(cur!=null){           //条件cur不能为空
+            if (cur.data==val){     //cur值等于val时
+                prev.next=cur.next;     //删除cur节点 拼接前后，并cur后移
+                cur=cur.next;
+            }else{                  //cur不等于val时，cur prev都后移
+                prev=prev.next;
+                cur=cur.next;
+            }
+        }
+        if (head.data==val){        //最后处理，当头节点值为val时
+            head=head.next;         //删除头节点
+        }
+        return head;
+    }
+//    public class ListNode {
+//        int val;
+//        ListNode next;
+//        ListNode(int x) {
+//            val = x;
+//        }
+//    }
