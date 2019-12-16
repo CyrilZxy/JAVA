@@ -1,0 +1,29 @@
+// 前序遍历  N-L-R
+    void preOrderTraversal(TreeNode root){
+        if(root==null){
+            return;
+        }
+        System.out.print(root.val+" ");
+        preOrderTraversal(root.left);
+        preOrderTraversal(root.right);
+    }
+
+// 中序遍历  L-N-R
+    void inOrderTraversal(TreeNode root){
+        if(root==null){
+            return;
+        }
+        inOrderTraversal(root.left);
+        System.out.print(root.val+" ");
+        inOrderTraversal(root.right);
+    }
+
+// 后序遍历  L-R-N
+    void postOrderTraversal(TreeNode root){
+        if(root==null){
+            return;
+        }
+        postOrderTraversal(root.right);
+        System.out.print(root.val+" ");
+        postOrderTraversal(root.left);
+    }
