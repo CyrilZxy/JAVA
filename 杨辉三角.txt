@@ -1,0 +1,32 @@
+class Solution {
+    public List<List<Integer>> generate(int numRows) {
+
+
+        List<List<Integer>> triangle =new ArrayList<>();        //new一个二维数组 元素Integer
+        if(numRows==0){
+            return triangle;
+        }
+        
+        triangle.add(new ArrayList<>());        //new 第0行
+        triangle.get(0).add(1);     //第0行，添加第一个元素1
+
+        for (int i = 1; i < numRows; i++) {       // i为 行数
+
+            List<Integer> curRow=new ArrayList<>();     //new 一行
+            curRow.add(1);      //0号下标为1
+
+            List<Integer> prevRow=triangle.get(i-1);    //保存上一行
+
+            for(int j=1;j<i;j++){
+                int tmp=prevRow.get(j-1)+prevRow.get(j);        //元素值就算=等于上一行的两个元素和
+                curRow.add(tmp);                        //在本行中添加元素
+            }
+
+            curRow.add(1);          //最后一个元素，加为1
+            triangle.add(curRow);   //将本行加入triangle
+        }
+
+        return  triangle;
+    }
+
+}
