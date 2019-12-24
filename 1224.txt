@@ -1,0 +1,31 @@
+import java.util.Arrays;
+
+public class testdemo {
+    public static void main(String[] args) {
+        int[] array={9,3,11,8,6,10};
+        System.out.println(Arrays.toString(array));
+        insertSort(array);
+        System.out.println(Arrays.toString(array));
+    }
+
+
+    public static void insertSort(int[] array){
+
+        for (int i = 1; i < array.length; i++) {
+
+            int tmp=array[i];
+            int j=0;
+
+            for (j = i-1; j >=0; j--) {
+                if(tmp<array[j]){
+                    array[j+1]=array[j];
+                }
+                else{
+                    break;
+                }
+            }
+        array[j+1]=tmp;
+        }
+
+    }
+}
