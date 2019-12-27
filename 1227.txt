@@ -1,0 +1,62 @@
+/**
+     * 快速排序 重点
+     * 时间复杂度：O(n×log₂ n)
+     * 空间复杂度：O(log₂ n)
+     * 不稳定
+     * 快排比堆排快，堆排空间复杂度小
+     *
+     * partion：O(n)
+     * quick：O(log₂ n)  递归
+     * @param array
+     */
+    public static void quickSort(int[] array){
+        quick1(array,0,array.length-1);
+        //quick2(array,0,array.length-1);
+    }
+    public static void quick1(int[]array,int low,int high){  //递归解决快速排序
+        if(low<high){
+
+            int pivot=partion(array,low,high);
+
+            quick1(array,low,pivot-1);
+            quick1(array,pivot+1,high);
+        }
+
+    }
+
+    public static void quick2(int[]array,int low,int high){     //非递归解决快速排序
+
+    }
+    public static int partion(int[] array,int start,int end){
+        int tmp=array[start];
+
+        while(start<end){
+
+            while( (start<end) && array[end]>=tmp){     //取等号
+                end--;
+            }
+            if(start>=end){
+                array[start]=tmp;
+                break;
+            }else if (array[end]<tmp){
+                array[start]=array[end];
+            }
+
+            //--------------------------------------------
+
+            while( (start<end) && array[start]<=tmp){     //取等号
+                start++;
+            }
+            if(start>=end){
+                array[start]=tmp;
+                break;
+            }else if (array[start]>tmp){
+                array[end]=array[start];
+            }
+
+        }
+        //array[start]=tmp;
+        return start;
+    }
+
+
