@@ -1,0 +1,40 @@
+@@ -0,0 +1,39 @@
+import java.util.ArrayList;
+import java.util.List;
+
+class Student {
+    public String name;
+    public String num_class;
+    public double score;
+
+    public Student(String name, String num_class, double score) {
+        this.name = name;
+        this.num_class = num_class;
+        this.score = score;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", num_class='" + num_class + '\'' +
+                ", score=" + score +
+                '}';
+    }
+}
+
+
+public class TEST {
+
+    public static void main(String[] args) {
+        List<Student> list=new ArrayList<>();
+        list.add(new Student("zxy","20班",85.5));
+        list.add(new Student("xxx","20班",80.0));
+        list.add(new Student("zzz","18班",79.9));
+        System.out.println(list);
+
+        for (Student student:list) {
+            System.out.println(student);
+        }
+    }
+}
