@@ -1,0 +1,42 @@
+@@ -0,0 +1,41 @@
+
+
+
+/*
+ public class ListNode {
+    int val;
+    ListNode next = null;
+
+    ListNode(int val) {
+        this.val = val;
+    }
+}
+*/
+public class Solution {
+
+    public ListNode EntryNodeOfLoop(ListNode pHead)
+    {
+        ListNode fast=pHead;
+        ListNode slow=pHead;
+        ListNode cur=pHead;
+        
+        while(fast!=null&&fast.next!=null){    //找环
+            fast=fast.next.next;
+            slow=slow.next;
+            if(fast==slow){
+                break;
+            }
+        }
+        
+        if(fast==null||fast.next==null){    //无环返回null
+            return null;
+        }
+        
+        while(cur!=slow){        //有环找入口点
+            cur=cur.next;
+            slow=slow.next;
+        }
+        return cur;
+        
+    }
+}
