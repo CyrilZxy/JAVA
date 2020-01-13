@@ -1,0 +1,57 @@
+--
+
+    //4.查找是否包含关键字key是否在双向链表当中
+    public boolean contains(int key){
+        ListNode cur=this.head;
+        while(cur!=null){
+            if(cur.data==key){
+                return true;
+            }
+            cur=cur.next;
+        }
+        return false;
+    }
+
+    //5.删除第一次出现关键字为key的节点
+    public void remove(int key){
+        ListNode cur=this.head;
+        while(cur!=null){
+            if(cur.data==key) {             //3种情况
+                if (cur == this.head) {     //在头时
+                    this.head = this.head.next;
+                    this.head.prev = null;
+                } else {                    //尾巴和中间
+                    cur.prev.next = cur.next;
+                    if (cur.next != null) {
+                        cur.next.prev = cur.prev;
+                    } else {          //尾巴时
+                        this.last = cur.prev;
+                    }
+                    return ;            //直接结束，删除第一个
+                }
+            }
+             cur=cur.next;
+        }
+    }
+
+    //6.删除所有值为key的节点
+    public void removeAllKey(int key){
+        ListNode cur=this.head;
+        while(cur!=null){
+            if(cur.data==key) {             //3种情况
+                if (cur == this.head) {     //在头时
+                    this.head = this.head.next;
+                    this.head.prev = null;
+                } else {                    //尾巴和中间
+                    cur.prev.next = cur.next;
+                    if (cur.next != null) {
+                        cur.next.prev = cur.prev;
+                    } else {          //尾巴时
+                        this.last = cur.prev;
+                    }
+                    //不return 全部删除
+                }
+            }
+            cur=cur.next;
+        }
+    }
