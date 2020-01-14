@@ -1,0 +1,49 @@
+public class T {
+    public static void main(String[] args) {
+
+    }
+
+
+//----------------------------------------------------
+    public static void main3(String[] args) {
+        String str="i am student";
+        func3(str);
+    }
+    public static void func3(String str){
+        char[] arrary=str.toCharArray();
+        reverse(arrary,0,arrary.length-1);      //头尾全部逆置
+        //System.out.println(Arrays.toString(arrary));
+
+        //单词逐个逆置
+        int i=0;        //左
+        int j=0;
+        while(i<arrary.length){
+            if(arrary[i]==' '){
+                i++;
+                j++;
+            }
+            if(j==arrary.length-1||arrary[j]==' '){
+                reverse(arrary,i,j-1);
+                i=++j;
+            }
+            /*if(j==arrary.length-1){
+                reverse(arrary,i,j-1);
+                i=++j;
+            }*/
+            else{
+                j++;
+            }
+        }
+        //System.out.println(Arrays.toString(arrary));
+        System.out.println(String.copyValueOf(arrary));
+    }
+
+    public static void reverse(char[] array,int left,int right) {
+        while (left < right) {
+            char tmp = array[left];
+            array[left] = array[right];
+            array[right] = tmp;
+            left++;
+            right--;
+        }
+    }
