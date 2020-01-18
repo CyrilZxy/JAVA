@@ -1,0 +1,31 @@
+
+
+    //7.输出链表
+    public void display() {
+        if (this.head == null) {
+            return;
+        } else {
+            ListNode cur = this.head;
+            while (cur != null) {
+                System.out.print(cur.data + " ");
+                cur = cur.next;
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    //8.清空单链表
+    public void clear(){
+        while(this.head.next!=null){
+            ListNode cur=this.head.next;
+            this.head.next=cur.next;
+        }
+        this.head=null;
+    }
+    
+    //9.链表长度  sout getLength返回值
+    public void size(){
+        System.out.println("该链表长度："+getLength());
+    }
+}
