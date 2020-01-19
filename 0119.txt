@@ -1,0 +1,38 @@
+
+1.包  package（文件夹）
+名称小写：com.baidu.zxy.src   倒着命名
+包 (package) 是组织类的一种方式.
+使用包的主要目的是保证类的唯一性.
+
+编译运行包中文件：    
+ .java文件中需添加  package com.bit ;        
+ 当前类的路径，在包外不加package。
+ javac com\bit\Test.java    \
+ java com.bit.Test		 .					JVM在根路径启动
+
+1.1导入包中的类
+  不导入直接使用 包 .
+public class Test {
+    public static void main(String[] args) {
+        
+        //格林威治时间 1970.1.1
+        java.util.Date date1 = new java.util.Date();      //无需导入包
+        // 得到一个毫秒级别的时间戳
+        System.out.println(date1.getTime());
+   }
+}
+可以使用 java.util.Date 这种方式引入 java.util 这个包中的 Date 类.
+这种写法比较麻烦一些, 可以使用 import 语句导入包.
+
+ import 语句导入包.
+import java.util.Date;
+public class Test {
+   public static void main(String[] args) {
+       
+       Date date2 = new Date();
+       // 得到一个毫秒级别的时间戳
+       System.out.println(date2.getTime());
+  }
+}
+
+使用 java.util 中的其他类，可合并为  import  java.util.* ;
