@@ -1,0 +1,117 @@
+public class test0201 {
+    public static void main(String[] args){
+        fun1();
+        mystery(1234);
+    }
+
+    public static void fun1(){
+        int x=20,y=5;
+        System.out.println(x+y +""+(x+y)+y);
+    }
+
+    public static void mystery(int x){
+        System.out.println(x%10);
+        if((x/10)!=0){
+            mystery(x/10);
+        }
+        System.out.println(x%10);
+    }
+
+}
+
+//大小写转换
+/*class Solution {
+    public String toLowerCase(String str) {
+
+        String str1="";
+
+        char[] array=str.toCharArray();
+        int j=array.length;
+
+        for(int i=0;i<j;i++){
+
+            if(array[i] <= 'Z' && array[i]>='A'){         //判断是否在大写区间
+                array[i]=(char)(array[i]+32);
+            }else{
+                //str1 += str[i];
+            }
+        }
+
+        str1=String.copyValueOf(array);
+        return str1;
+    }
+}*/
+
+
+//旋转数组
+/*class Solution {
+    public void rotate(int[] nums, int k) {
+
+        int[] array = new int[nums.length];
+
+        for (int i = 0; i < nums.length; i++) {
+
+            int j=i+k;
+
+            if(j<nums.length){
+                array[j]=nums[i];
+            }else{
+                j=j%nums.length;
+                array[j]=nums[i];
+            }
+
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = array[i];
+        }
+
+    }
+}*/
+
+
+//移除元素
+/*class Solution {
+    public int removeElement(int[] nums, int val) {
+
+        int l=nums.length;
+        int j=0;
+
+        for(int i=0;i<l;i++){
+            if(nums[i]!=val){
+                nums[j]=nums[i];
+                j++;
+            }
+        }
+
+        return j;
+    }
+}*/
+
+
+//搜索插入位置
+/*
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+
+        for(int i=0;i<nums.length;i++){     //存在返回下标
+            if(nums[i]==target){
+                return i;
+            }
+        }
+
+
+        for(int i=0;i<nums.length;i++){     //不存在找夹值
+            int j=i+1;
+            if(nums[i]>target){
+                return i;
+            }
+        }
+
+        if(nums[nums.length-1]<target){       //数组尾
+            return nums.length;
+        }
+
+        return 0;
+    }
+}*/
