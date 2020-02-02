@@ -1,0 +1,111 @@
+import java.util.Arrays;
+
+public class test0202 {
+    public static void main(String[] args) {
+        test2();
+
+
+    }
+
+    public static void test1(){
+        int i=7;
+        do{
+            System.out.println(--i);
+            --i;
+        }while(i!=0);
+        System.out.println(i);
+    }
+
+
+
+    public static void test2() {
+        System.out.println("value="+switchit(4));
+    }
+    public static int switchit(int x) {
+        int j=1;
+        switch (x) {
+            case 1:j++;
+            case 2:j++;
+            case 3:j++;
+            case 4:j++;
+            case 5:j++;
+            default:j++;
+        }
+        return j+x;
+    }
+
+
+
+    //字符串包含
+    public boolean canConstruct(String ransomNote, String magazine) {
+
+        if(ransomNote.length()>magazine.length()){
+            return false;
+        }
+
+        int caps[] = new int[26];
+
+        for (char c : ransomNote.toCharArray()) {
+
+            int index = magazine.indexOf(c, caps[c - 'a']);
+
+            if (index == -1)
+                return false;
+            caps[c - 97] = index + 1;
+        }
+
+        return true;
+    }
+
+
+
+    //判断回文数字
+    public static boolean isPalindrome(int x) {
+
+        String reversedStr = (new StringBuilder(x + "")).reverse().toString();
+        //reverse 字符序列反转
+
+        return (x + "").equals(reversedStr);
+
+    }
+
+
+    //最后一单词长度
+    public int lengthOfLastWord(String s) {
+
+        //输入字符s 为空
+        if(s == null || s.length() == 0) {
+            return 0;
+        }
+
+        int count = 0;
+        //计数不为空格的字符
+        for(int i = s.length()-1; i >= 0; i--){
+            if(s.charAt(i) == ' '){
+                if(count == 0) continue;
+                break;
+            }
+            count++;
+        }
+        return count;
+
+    }
+
+
+    //两数组合并排序
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+
+        int i=nums1.length-nums2.length;
+        for(int j=0;j<n;j++){
+            nums1[j+i]=nums2[j];
+        }
+
+        //System.arraycopy(nums2, 0, nums1, m, n);
+
+        Arrays.sort(nums1);
+        System.out.print(nums1);
+
+    }
+
+
+}
