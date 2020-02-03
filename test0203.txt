@@ -1,0 +1,91 @@
+import java.util.Arrays;
+
+public class test0203 {
+
+    public static void main(String[] args) {
+        int[]arr={1,3,4,5,7,3,2,1};
+        System.out.println(containsDuplicate(arr));
+
+    }
+
+    //数组重复元素
+    public static boolean containsDuplicate(int[] nums) {
+        Arrays.sort(nums);
+        for(int i=0;i<nums.length;i++){
+            if(i<nums.length-1 && nums[i]==nums[i+1] ){
+                return true;
+            }
+        }
+
+        return false;
+
+        //超时
+        /*
+        for (int i = 0; i < nums.length; ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (nums[j] == nums[i]) return true;
+            }
+        }
+        return false;   */
+    }
+
+    //长按键入
+    public boolean isLongPressedName(String name, String typed) {
+
+        int j=0;
+        for(int i=0;i<typed.length();i++){
+            if(name.charAt(j)==typed.charAt(i)){
+                j++;
+            }
+            if(j==name.length())
+                break;
+
+        }
+        return j==name.length()?true:false;
+    }
+
+    //有序数组平方
+    public static int[] sortedSquares(int[] A) {
+
+        for(int i=0;i<A.length;i++){
+            A[i]=A[i]*A[i];
+        }
+
+        Arrays.sort(A);
+
+        return A;
+    }
+
+
+    //仅反转字母
+    public String reverseOnlyLetters(String S) {
+        if(S.length() <= 1)return S;
+        //左右指针
+        int pL = 0; int pR = S.length() - 1;
+        StringBuilder sb = new StringBuilder();
+        //移动指针
+        while(pL < S.length() && pR >= 0){
+            //如果左端不是字符
+            if(!isOkchar(S.charAt(pL))){
+                sb.append(S.charAt(pL));
+                pL++;
+                //右端不是字符
+            }else if(!isOkchar(S.charAt(pR))){
+                pR--;
+            }else{
+                //都是字符
+                sb.append(S.charAt(pR));
+                pL++;
+                pR--;
+            }
+        }
+        //指针没到头的话
+        sb.append(S.substring(pL,S.length()));
+        return sb.toString();
+    }
+    public boolean isOkchar(char c){
+        return c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z';
+    }
+
+}
+
