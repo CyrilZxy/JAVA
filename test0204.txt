@@ -1,0 +1,60 @@
+public class test0204 {
+
+
+}
+
+//按奇偶排序数组
+class Solution {
+    public int[] sortArrayByParity(int[] A) {
+
+        int l=A.length-1;
+        int j=0;
+        int[] B=new int[A.length];
+
+        for(int i=0 ; i<A.length; i++){
+            if(A[i]%2==0){
+                B[j]=A[i];
+                j++;
+            }
+            else{
+                B[l]=A[i];
+                l--;
+            }
+        }
+
+        return B;
+    }
+}
+//寻找数组的中心索引
+class Solution2 {
+    public int pivotIndex(int[] nums) {
+
+        if(nums.length==1){
+            return 0;
+        }
+        if(nums.length==0){
+            return -1;
+        }
+
+        for(int i=0;i<nums.length;i++){
+            int sum1=0;
+            int sum2=0;
+
+            for(int j=0;j<i;j++){
+                sum1+=nums[j];
+            }
+
+            for(int k=i+1;k<nums.length;k++){
+                sum2+=nums[k];
+            }
+
+            if(sum1==sum2){
+                return i;
+            }
+
+        }
+
+        return -1;
+    }
+}
+
