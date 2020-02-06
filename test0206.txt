@@ -1,0 +1,25 @@
+ public static void main2(String[] args) {
+        String str="aabbccdaa";
+        func2(str);
+
+    }
+    public static void func2(String str){
+        char[] array=str.toCharArray();
+        int repCount=1;
+        char ch=str.charAt(0);
+
+        StringBuilder sb= new StringBuilder();
+        for (int i = 0; i <str.length() ; i++) {
+            if(str.charAt(i)==ch){
+                repCount++;
+            }else{
+                sb.append(repCount).append(ch);
+                repCount=1;
+                ch=str.charAt(i);
+            }
+        }
+
+        sb.append(repCount).append(ch);
+
+        System.out.println(sb);
+    }
