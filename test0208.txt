@@ -1,0 +1,26 @@
+//长按键入
+    public boolean isLongPressedName(String name, String typed) {
+
+        int j=0;
+        for(int i=0;i<typed.length();i++){
+            if(name.charAt(j)==typed.charAt(i)){
+                j++;
+            }
+            if(j==name.length())
+                break;
+
+        }
+        return j==name.length()?true:false;
+    }
+
+    //有序数组平方
+    public static int[] sortedSquares(int[] A) {
+
+        for(int i=0;i<A.length;i++){
+            A[i]=A[i]*A[i];
+        }
+
+        Arrays.sort(A);
+
+        return A;
+    }
