@@ -1,0 +1,59 @@
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class test0210 {
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+
+        String url="jdbc:mysql://127.0.0.1:3306/t0210?useSSL=false&characterEncoding=utf8";
+        String user="root";
+        String password="";
+
+        Connection connection=DriverManager.getConnection(url,user,password);
+
+        //插入数据
+        /*{
+            Statement statement=connection.createStatement();
+
+            String sql="insert into users(id,name) values(1,'zxy'),(3,'wqq'),(3,'gs') ";
+            statement.executeUpdate(sql);
+            statement.close();
+
+        }*/
+
+
+        //修改数据
+        /*{
+            Statement statement=connection.createStatement();
+
+            String sql="UPDATE users SET id = '2' WHERE name = 'wqq'";
+            statement.executeUpdate(sql);
+            statement.close();
+        }*/
+
+
+        //处理结果集
+        {
+            Statement statement = connection.createStatement();
+
+            String sql = "SELECT id, name FROM users";
+
+            ResultSet resultSet = statement.executeQuery(sql);
+            List<String> nameList = new ArrayList<>();
+            while (resultSet.next()) {
+                int id = resultSet.getInt(1);
+                String name = resultSet.getString("name");
+                // 结果集马上需要销毁，所以通过 List 保存结果
+                nameList.add(name);
+
+                System.out.println(id + ", " + name);
+            }
+            statement.close();
+        }
+
+
+        connection.close();
+
+    }
+}
