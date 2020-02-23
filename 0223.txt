@@ -1,0 +1,21 @@
+//最后一单词长度
+
+public int lengthOfLastWord(String s) {
+
+    //输入字符s 为空
+    if(s == null || s.length() == 0) {
+        return 0;
+    }
+
+    int count = 0;
+    //计数不为空格的字符
+    for(int i = s.length()-1; i >= 0; i--){
+        if(s.charAt(i) == ' '){
+            if(count == 0) continue;
+            break;
+        }
+        count++;
+    }
+    return count;
+
+}
