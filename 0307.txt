@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n;
+        while(sc.hasNext()){
+            n=sc.nextInt();
+            System.out.println(BuyApple(n));
+        }
+    }
+    
+    public static int BuyApple(int n){
+        
+        if(n%2==1 || n<6 || n==10){        //为奇数时和小于六时
+            return -1;
+        }
+        
+        if(n%8==0){
+            return n/8;
+        }
+                                //此时%8的余数为   2 4 6
+        return 1+n/8;
+        
+        //就要从前面的1或者2个8中拿出2个，把余数补为6（本来余数就是6，就不用拿）
+        
+        
+    }
+}
