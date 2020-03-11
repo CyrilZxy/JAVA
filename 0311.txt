@@ -1,0 +1,22 @@
+import java.util.*;
+ 
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        ArrayList<Integer> list=new ArrayList<>();
+        int k=0;
+        while(sc.hasNextInt()){
+            k=sc.nextInt();
+            list.add(k);
+        }
+         
+        list.remove(list.size()-1);
+         
+        Collections.sort(list);
+         
+        for (int i = 0; i < k-1; i++) {
+           System.out.print(list.get(i)+" ");
+        }
+        System.out.print(list.get(k-1));
+    }
+}
