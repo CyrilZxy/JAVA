@@ -1,0 +1,28 @@
+
+
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+
+        for(int i=0;i<nums.length;i++){     //存在返回下标
+            if(nums[i]==target){
+                return i;
+            }
+        }
+
+
+        for(int i=0;i<nums.length;i++){     //不存在找夹值
+            int j=i+1;
+            if(nums[i]>target){
+                return i;
+            }
+        }
+
+        if(nums[nums.length-1]<target){       //数组尾
+            return nums.length;
+        }
+
+        return 0;
+    }
+}
+
+
