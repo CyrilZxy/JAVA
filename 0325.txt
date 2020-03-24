@@ -1,0 +1,29 @@
+
+
+//先排序  后记录次数
+//判断是否次数大于n/2
+ 
+import java.util.*;
+ 
+public class Gift {
+    public int getValue(int[] gifts, int n) {
+        // write code here
+        Arrays.sort(gifts);
+         
+        int half= gifts[n/2];
+        int time=0;
+         
+        for(int i=0;i<n;i++){
+            if(gifts[i]==half){
+                time+=1;
+            }
+        }
+         
+        if(time<=n/2){
+            return 0;
+        }else{
+            return half;
+        }
+         
+    }
+}
