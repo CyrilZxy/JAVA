@@ -1,0 +1,43 @@
+//二叉树平衡检查  递归
+
+import java.util.*;
+
+/*
+public class TreeNode {
+    int val = 0;
+    TreeNode left = null;
+    TreeNode right = null;
+    public TreeNode(int val) {
+        this.val = val;
+    }
+}*/
+
+public class Balance {
+    public boolean isBalance(TreeNode root) {
+        // write code here
+        if(root==null){
+            return true;
+        }else{
+            
+            int L=Deep(root.left);    //分别得到左右子节点的高度
+            int R=Deep(root.right);
+            
+            if(Math.abs(L-R)<=1){        //左右高度差 绝对值小于1时.开始递归其子节点
+                return isBalance(root.left)
+                       && isBalance(root.right);
+            }else{
+                return false;        //只要一个不满足，就不是平衡二叉树。
+            }
+            
+        }
+        
+    }
+    
+    public static int Deep(TreeNode root){
+        if(root==null){
+            return 0;
+        }else{
+            return Math.max( Deep(root.left), Deep(root.right) )+1;
+        }
+    }
+}
