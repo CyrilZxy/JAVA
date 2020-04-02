@@ -4,9 +4,11 @@ import java.util.Scanner;
  
 public class Main {
     public static void main(String[] args) {
-        //int 可以表示的最大数 2147483647
-        //1600000000 可以表示
-        Scanner scanner = new Scanner(System.in);
+
+    //假如n为97.   其十进制形式下所有位置数字之和等于9+7=16，
+    //            并计算其平方的各位数字之和. 是计算原始数字97*97=9409，各位数字之和9+4+0+9=22。
+ 
+       Scanner scanner = new Scanner(System.in);
         while (scanner.hasNext()){
             int i = scanner.nextInt();
             int j =i*i;
