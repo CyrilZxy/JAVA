@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n;
+        while(sc.hasNext()){
+            n=sc.nextInt();
+            jugeN(n);
+        }
+    }
+    public static void jugeN(int n){
+        
+        if(n== 5 ||  n== 6){            //n为1位数时，只有5，6为守形数
+             System.out.println("Yes!");
+        }
+        
+        int Num2=n*n;
+        if(n >= 10){                   //n为两位数时
+            if(Num2%100 == n){         //NUM2对100取余数，得到最后两位的数字 在与n进行对比
+                 System.out.println("Yes!");
+            }
+        }
+        
+        System.out.println("No!");
+    }
+}
