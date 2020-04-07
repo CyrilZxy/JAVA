@@ -1,0 +1,20 @@
+//输入：Hello World Here I Come
+//输出：Come I Here World Hello
+
+
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        String input=sc.nextLine();
+        Change(input);
+    }
+	
+    public static void Change(String str){
+        String[] arr=str.split(" ");
+        for(int i=arr.length-1;i>=0;i--){
+            System.out.print(arr[i]+" ");
+        }
+    }
+}
