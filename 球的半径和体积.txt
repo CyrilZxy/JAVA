@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int x1 = sc.nextInt();
+        int y1 = sc.nextInt();
+        int z1 = sc.nextInt();
+        int x2 = sc.nextInt();
+        int y2 = sc.nextInt();
+        int z2 = sc.nextInt();
+        
+        
+        double r2=Math.pow(x1-x2,2)+Math.pow(y1-y2,2)
+                  +Math.pow(z1-z2,2);                           //Math.pow(表达式,次方);
+        double r=Math.sqrt(r2);                                 //Math.sqrt(表达式); 开根号方法
+        
+        double v=(4.0/3.0) * Math.PI * Math.pow(r,3 );          //Π值Math.PI
+        
+        System.out.printf("%.3f %.3f",r,v);        //输出取三位小数
+        
+    }
+}
