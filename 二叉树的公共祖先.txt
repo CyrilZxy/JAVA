@@ -1,0 +1,39 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+         if(root==null){
+            return null;
+        }
+
+        if(root==p || root==q){
+            return root;
+        }
+
+        TreeNode leftTree=lowestCommonAncestor(root.left,p,q);
+        TreeNode rightTree=lowestCommonAncestor(root.right,p,q);
+
+
+        if(leftTree!=null && rightTree!=null){          //左右树中 分别包含 p或q
+            return root;
+        }
+
+        if(leftTree!=null && rightTree==null){         //左树中 包含p和q
+            return leftTree;
+        }
+
+        if(rightTree!=null && leftTree==null){        //右树中 包含p和q
+            return rightTree;
+        }
+
+        return null;            //一个都找不到，直接return 空
+
+    }
+}
