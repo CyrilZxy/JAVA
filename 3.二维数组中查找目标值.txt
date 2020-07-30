@@ -26,3 +26,32 @@ public class Solution {
         return false;
     }
 }
+法二：二分法
+public class Solution {
+    public boolean Find(int target, int [][] array) {
+        
+        //二分法
+        for(int i=0;i<array.length;i++){        //每行中进行二分
+            
+            int low=0;                        //起点
+            int high=array[i].length-1;       //终点
+            //每行元素下标 low-right 之间
+            
+            while(low<=high){
+                int mid=(low+high)/2;        //二分
+                if(target==array[i][mid]){
+                    return true;
+                }
+                if(target>array[i][mid]){    //比目标元素小 将起点设为mid+1
+                    low=mid+1;
+                }
+                if(target<array[i][mid]){    //比目标元素大 将终点设为mid+-1
+                    high=mid-1;
+                }
+            }
+            
+        }
+        
+        return false;
+    }
+}
