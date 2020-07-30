@@ -1,0 +1,28 @@
+法一：右上开始找
+public class Solution {
+    public boolean Find(int target, int [][] array) {
+        
+        if(array==null||array.length==0){
+            return false;
+        }
+        
+        int hang=array.length;
+        int lie=array[0].length;
+        
+        int i=0,j=lie-1; 
+        //i为行数 j为列数
+        //起点为右上
+        while(i<hang && j>=0){
+            if(array[i][j]==target){
+                return true;
+            }
+            if(array[i][j]<target){   //当前值小于目标值,行数加一
+                i++;
+            }else{                    //当前值大于目标值，列数减一
+                j--;                  //（本行找不到则，j值越界为-1输出法拉瑟）
+            }
+        }
+        
+        return false;
+    }
+}
