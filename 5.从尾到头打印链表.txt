@@ -1,0 +1,41 @@
+法一：栈
+import java.util.ArrayList;
+import java.util.Stack;
+
+public class Solution {
+    public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
+        
+        ArrayList<Integer> list=new ArrayList<Integer>();
+        Stack<ListNode> stack=new Stack<ListNode>();
+        
+        while(listNode!=null){
+            stack.push(listNode);
+            listNode=listNode.next;
+        }
+        
+        while(!stack.isEmpty()){
+            list.add( stack.pop().val );
+        }
+        
+        return list;
+    }
+}
+
+法二：递归
+import java.util.ArrayList;
+
+public class Solution {
+    public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
+        
+        ArrayList<Integer> list=new ArrayList<Integer>();
+        
+        if(listNode!=null){
+            if(listNode.next!=null){
+                list=printListFromTailToHead(listNode.next);
+            }
+            list.add(listNode.val);
+        }
+        
+        return list;
+    }
+}
