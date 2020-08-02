@@ -1,0 +1,40 @@
+法一：递归 写出左右子树返回root
+import java.util.Arrays;
+
+public class Solution {
+    public TreeNode reConstructBinaryTree(int [] pre,int [] in) {
+        
+        if(pre==null || in==null || pre.length==0 || in.length==0){
+            return null;
+        }
+        if(pre.length!=in.length){
+            return null;
+        }
+        
+        TreeNode root=new TreeNode(pre[0]);
+        
+        for(int i=0;i<pre.length;i++){
+            if(pre[0]==in[i]){
+                //pre_zuo=Arrays.copyOfRange(pre,1,i);    +1
+                //pre_you=Arrays.copyOfRange(pre,i+1,pre.length);
+                
+                //in_zuo=Arrays.copyOfRange(in,0,i-1);    +1
+                //in_you=Arrays.copyOfRange(in,i+1,in.length);
+                
+                root.left=reConstructBinaryTree
+                    (Arrays.copyOfRange(pre,1,i+1),
+                     Arrays.copyOfRange(in,0,i));
+                    
+                root.right=reConstructBinaryTree
+                    (Arrays.copyOfRange(pre,i+1,pre.length),
+                     Arrays.copyOfRange(in,i+1,in.length));
+                    
+            }
+        }
+        
+        return root;
+        
+    }
+}
+
+
