@@ -1,0 +1,68 @@
+import java.util.ArrayList;
+public class Solution {
+    public int minNumberInRotateArray(int [] array) {
+        
+        if(array==null || array.length==0){
+            return 0;
+        }
+        
+        if(array.length==1){
+            return array[0];
+        }
+        
+        int left=0;
+        int right=array.length-1;
+        
+        while(left<right){
+            int mid=(right+left)/2;
+            
+            if(array[mid]>array[mid+1]){        //找到旋转点	隔壁
+                return array[mid+1];
+            }
+            
+            if(array[mid-1]>array[mid]){        //找到旋转点	隔壁
+                return array[mid];
+            }
+            
+            
+            if(array[mid]<array[0]){     //点在0到mid之间
+                right=mid-1;
+            }else{                      //点在mid+1到array.length-1之间
+                left=mid+1;
+            }
+            
+        }
+        
+        return 0;
+    }
+}
+
+
+import java.util.ArrayList;
+public class Solution {
+    public int minNumberInRotateArray(int [] array) {
+        
+        if(array==null || array.length==0){
+            return 0;
+        }
+        
+        if(array.length==1){
+            return array[0];
+        }
+        
+        int left=0;
+        int right=array.length-1;
+        
+        while(left<right){
+            int mid=(right+left)/2;
+            if(array[mid]>array[array.length-1]){
+                left=mid+1;
+            }else{
+                right=mid;
+            }
+            
+        }
+        
+        return array[left];
+    }
+}
