@@ -1,0 +1,22 @@
+import java.util.Arrays;
+
+public class Solution {
+    public int JumpFloorII(int target) {
+        
+        if(target==0 || target==1 || target==2){
+            return target;
+        }
+        int[] F=new int[target+1];
+        
+        F[0]=1;
+        F[1]=1;
+        F[2]=2;
+        
+        for(int i=3;i<=target;i++){
+            for(int j=i-1;j>=0;j--)
+                F[i]+=F[j];
+        }
+        
+        return F[target];
+    }
+}
