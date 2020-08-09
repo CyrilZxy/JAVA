@@ -1,0 +1,29 @@
+public class Solution {
+    public double Power(double base, int exponent) {
+        
+        if(exponent==0){
+            return 1;
+        }
+        if(base==0){
+            return 0;
+        }
+        
+        double out=base;
+        
+        if(exponent>0){
+            for(int i=1;i<exponent;i++){
+                out=out*base;
+            }
+        }else{
+            exponent=Math.abs(exponent);
+            for(int i=1;i<exponent;i++){
+                out=out*base;
+            }
+            out=1/out;
+        }
+        
+        
+        return out;
+        
+  }
+}
