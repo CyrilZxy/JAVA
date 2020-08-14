@@ -1,0 +1,25 @@
+import java.util.Iterator;
+import java.util.HashSet;
+
+class Solution {
+    public int singleNumber(int[] nums) {
+
+        HashSet<Integer> set=new HashSet<>();
+        for(int i=0;i<nums.length;i++){
+            if(set.contains(nums[i])==false){
+                set.add(nums[i]);
+            }else{
+                set.remove(nums[i]);
+            }
+        }
+
+        Iterator<Integer> it=set.iterator();
+        while(it.hasNext()){
+            return it.next();
+        }
+        
+        return -1;
+    }
+}
+
+
