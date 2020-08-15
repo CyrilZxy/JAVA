@@ -1,0 +1,26 @@
+import java.util.*;
+
+
+public class Main{
+    public static void main(String[] args){
+        
+        Scanner sc=new Scanner(System.in);
+        String input=sc.nextLine();
+        String output=sc.nextLine();
+        
+        HashSet<Character> set1=new HashSet<>();
+        //记录有效键号
+        for(char useful:output.toUpperCase().toCharArray() ){
+            set1.add(useful);
+        }
+        
+        HashSet<Character> set2=new HashSet<>();
+        //验证输入键号 是否存在有效键号中 且 之前没有出现过
+        for(char useless:input.toUpperCase().toCharArray()){
+            if( !set1.contains(useless)&& !set2.contains(useless)){
+                set2.add(useless);
+                System.out.print(useless);
+            }
+        }
+    }
+}
