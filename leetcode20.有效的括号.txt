@@ -1,0 +1,52 @@
+import java.util.Stack;
+
+class Solution {
+    public boolean isValid(String s) {
+
+        Stack<Character> stack=new Stack<>();
+
+        //遍历字符串
+        for(int i=0;i<s.length();i++){
+            //左括号入栈
+            if(s.charAt(i)=='(' || s.charAt(i)=='[' || s.charAt(i)=='{'){
+                stack.push(s.charAt(i));
+            }
+            //右括号
+            else{
+                //栈为空 右括号多，不匹配
+                if(stack.empty()==true){
+                    return false;
+                }
+
+                //栈不为空，拿栈顶元素进行匹配比较
+                else{
+                    char c=stack.peek();
+                    //匹配则出栈
+                    if(s.charAt(i)==')' && c=='('){
+                        stack.pop();
+                    }
+                    else if(s.charAt(i)==']' && c=='['){
+                        stack.pop();
+                    }
+                    else if(s.charAt(i)=='}' && c=='{'){
+                        stack.pop();
+                    }
+                    //不匹配
+                    else{
+                        return false;
+                    }
+
+                }
+
+            }
+
+
+        }
+
+        //遍历结束 为空则匹配。不为空则不匹配，左括号多。
+        if(stack.empty()){
+            return true;
+        }
+        return false;
+    }
+}
