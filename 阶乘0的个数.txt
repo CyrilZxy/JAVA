@@ -1,0 +1,46 @@
+import java.math.BigInteger;
+import java.util.Scanner;
+import java.util.HashMap;
+public class test2 {
+
+    public static void main(String[] args){
+
+        Scanner sc=new Scanner(System.in);
+        int input=31;
+
+        //大数据求阶乘
+        BigInteger output=new BigInteger("1");
+
+        for(int i=1;i<input;i++){
+            //转数据类型
+            BigInteger num=new BigInteger(String.valueOf(i));
+            //乘法
+            output=output.multiply(num);
+        }
+
+        //阶乘结果
+        //System.out.print(output);
+
+
+        String str=String.valueOf(output);
+        int zeros=0;
+
+        for(int i=str.length()-1;i>=0;i--){
+            char c=str.charAt(i);
+            //System.out.println(c);
+            String s=Character.toString(c);
+            //System.out.println(s);
+            if(s.equals("0")){
+                zeros++;
+            }else{
+                System.out.print(zeros);
+                return;
+            }
+        }
+
+        return;
+
+    }
+
+
+}
