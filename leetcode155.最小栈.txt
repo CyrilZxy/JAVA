@@ -1,0 +1,50 @@
+import java.util.Stack;
+
+class MinStack {
+
+    private Stack<Integer> stack;
+    private Stack<Integer> minstack;
+
+    //初始化
+    public MinStack() {
+        this.stack=new Stack<>();
+        this.minstack=new Stack<>();
+    }
+    
+    //入栈
+    public void push(int x) {
+        //第一次入栈
+        if(stack.isEmpty()){
+            stack.push(x);
+            minstack.push(x);
+        }
+        //第n次入栈
+        else{
+            stack.push(x);
+            //当入栈元素大于min栈顶元素，把min栈顶元再次入min栈
+            if(stack.peek()>minstack.peek()){
+                minstack.push(minstack.peek());
+            }
+            //当入栈元素小于min栈顶元素，直接入min栈
+            else{
+                minstack.push(stack.peek());
+            }
+        }
+    }
+    
+    //出栈
+    public void pop() {
+        stack.pop();
+        minstack.pop();
+    }
+    
+    //拿栈顶元素
+    public int top() {
+        return stack.peek();
+    }
+    
+    //拿当前栈最小值
+    public int getMin() {
+        return minstack.peek();
+    }
+}
