@@ -1,0 +1,15 @@
+//懒汉模式（线程安全、性能正常）
+public class Singleton {
+    private Singleton (){}        //构造器私有
+    private volatile static Singleton instance=null;
+    public static Singleton getInstance() {   
+        if (instance == null) {               //判断是否被构造过
+            synchronized (Singleton.class){
+                if(instance == null){
+                    instance == new  Singleton(); 
+                }
+            }
+        }
+        return instance;
+    }
+}
