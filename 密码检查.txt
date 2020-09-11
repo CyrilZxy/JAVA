@@ -1,0 +1,66 @@
+import java.util.*;
+
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        while(sc.hasNextLine()){
+            String str=sc.nextLine();
+            String[] arr=str.split("");
+            judge(arr);
+        }
+        
+    }
+    public static String SPECIAL_CHAR="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+
+    public static void judge(String[] arr){
+        if(arr.length<8){
+            System.out.println("Irregular password");
+            return;
+        }
+        
+        int num=0;
+        int A=0;
+        int a=0;
+        int special=0;
+        
+        for(int i=0;i<arr.length;i++){
+            char s=arr[i].charAt(0);
+			//包含数字
+            if(Character.isDigit(s)){
+                num++;
+            }
+			//小写字母
+            if(Character.isLowerCase(s)){
+                a++;
+            }
+			//大写字母
+            if(Character.isUpperCase(s)){
+                A++;
+            }
+			//特殊字符
+            if(SPECIAL_CHAR.indexOf(s)!=-1){
+                special++;
+            }
+        }
+        
+        if(num==0){
+            System.out.println("Irregular password");
+            return;
+        }
+        if(a==0){
+            System.out.println("Irregular password");
+            return;
+        }
+        if(A==0){
+            System.out.println("Irregular password");
+            return;
+        }
+        if(special==0){
+            System.out.println("Irregular password");
+            return;
+        }
+        
+        System.out.println("Ok"); 
+        
+    }
+}
